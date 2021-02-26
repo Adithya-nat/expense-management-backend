@@ -54,6 +54,26 @@ exports.findAll = (req, res) => {
       });
     }); 
 };
+
+//Retrieve items based on date.
+exports.findByDate = (req, res) => {
+  const condition = {
+    day: req.query.day,
+    month: req.query.month,
+    year: req.query.year
+  }
+
+  Item.findAll({ where: condition })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Items."
+      });
+    });
+}
   
 // Find a single Item with an id
 exports.findOne = (req, res) => {
