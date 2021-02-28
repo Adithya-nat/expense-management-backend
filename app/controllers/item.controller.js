@@ -93,6 +93,24 @@ exports.findByMonth = (req, res) => {
       });
     });
 }
+
+//Retrieve items based on year.
+exports.findByYear = (req, res) => {
+  const condition = {
+    year: req.query.year
+  }
+
+  Item.findAll({ where: condition })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Items."
+      });
+    });
+}
   
 // Find a single Item with an id
 exports.findOne = (req, res) => {
