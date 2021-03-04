@@ -1,5 +1,5 @@
 module.exports = {
-  HOST: "expense-management-backend.herokuapp.com",
+  HOST: "localhost",
   USER: "root",
   PASSWORD: "adithyA98",
   DB: "webapp_users",
