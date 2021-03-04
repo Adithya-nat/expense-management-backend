@@ -5,7 +5,6 @@ const db = require("./app/models");
 db.sequelize.sync();
 
 const app = express();
-app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
@@ -14,9 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 require("./app/routes/user.routes")(app);
 require("./app/routes/item.routes")(app);
-var corsOptions = {
-  origin: "http://localhost:8081"
-};
+
 
 
 
